@@ -35,13 +35,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Plant response",
+            "description": "List of calls",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Plant"
+                    "$ref": "#/components/schemas/Call"
                   }
                 }
               }
@@ -60,13 +60,13 @@
         }
       },
       "post": {
-        "description": "Creates a new plant in the store",
+        "description": "Creates a new call in the system",
         "requestBody": {
-          "description": "Plant to add to the store",
+          "description": "Call to be created",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+                "$ref": "#/components/schemas/NewCall"
               }
             }
           },
@@ -74,17 +74,17 @@
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "Call created",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/Call"
                 }
               }
             }
           },
           "400": {
-            "description": "unexpected error",
+            "description": "Unexpected error",
             "content": {
               "application/json": {
                 "schema": {
@@ -96,14 +96,14 @@
         }
       }
     },
-    "/assistants/{id}": {
+    "/call/{id}": {
       "get": {
-        "description": "Gets a single assistant based on the ID supplied",
+        "description": "Gets details of a call by ID",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID of plant to delete",
+            "description": "ID of the call",
             "required": true,
             "schema": {
               "type": "integer",
@@ -112,12 +112,18 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
+          "200": {
+            "description": "Details of the call",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Call"
+                }
+              }
+            }
           },
           "400": {
-            "description": "unexpected error",
+            "description": "Unexpected error",
             "content": {
               "application/json": {
                 "schema": {
@@ -132,31 +138,46 @@
   },
   "components": {
     "schemas": {
-      "Plant": {
-        "required": ["name"],
+      "Call": {
+        "required": ["id", "caller", "callee"],
         "type": "object",
         "properties": {
-          "name": {
-            "description": "The name of the plant",
+          "id": {
+            "description": "Unique identifier for the call",
+            "type": "integer",
+            "format": "int64"
+          },
+          "caller": {
+            "description": "Caller information",
             "type": "string"
           },
-          "tag": {
-            "description": "Tag to specify the type",
+          "callee": {
+            "description": "Callee information",
             "type": "string"
+          },
+          "duration": {
+            "description": "Duration of the call in seconds",
+            "type": "integer",
+            "format": "int32"
+          },
+          "timestamp": {
+            "description": "Timestamp of the call",
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
-      "NewPlant": {
+      "NewCall": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/Plant"
+            "$ref": "#/components/schemas/Call"
           },
           {
             "required": ["id"],
             "type": "object",
             "properties": {
               "id": {
-                "description": "Identification number of the plant",
+                "description": "Identification number of the call",
                 "type": "integer",
                 "format": "int64"
               }

@@ -1,4 +1,26 @@
 ---
-title: "Get Calls"
+title: "Get Call Details"
 openapi: "GET /call/{id}"
+description: "Retrieves the details of a specific call by its ID."
+parameters:
+  - name: "id"
+    in: "path"
+    required: true
+    description: "ID of the call"
+    schema:
+      type: "integer"
+      format: "int64"
+responses:
+  200:
+    description: "Details of the call"
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/Call"
+  400:
+    description: "Unexpected error"
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/Error"
 ---
