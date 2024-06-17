@@ -19,7 +19,7 @@
     }
   ],
   "paths": {
-    "/plants": {
+    "/call": {
       "get": {
         "description": "Returns all calls for the user",
         "parameters": [
