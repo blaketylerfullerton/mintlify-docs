@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Starter Kit",
   "logo": {
-    "dark": "/logo/nova-dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/nova-dark.png",
+    "light": "/logo/nova-dark.png"
   },
   "favicon": "/favicon.svg",
   "colors": {
@@ -64,12 +64,16 @@
       "pages": ["api-reference/introduction"]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Calls",
       "pages": [
         "api-reference/endpoint/get",
         "api-reference/endpoint/create",
         "api-reference/endpoint/delete"
       ]
+    },
+    {
+      "group": "Asstants",
+      "pages": ["api-reference/introduction"]
     }
   ],
   "footerSocials": {
