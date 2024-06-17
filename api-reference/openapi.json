@@ -96,9 +96,9 @@
         }
       }
     },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
+    "/assistants/{id}": {
+      "get": {
+        "description": "Gets a single assistant based on the ID supplied",
         "parameters": [
           {
             "name": "id",
