@@ -7,11 +7,11 @@
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#0D9373",
+    "primary": "#0c74dc",
     "light": "#07C983",
-    "dark": "#0D9373",
+    "dark": "#0c74dc",
     "anchors": {
-      "from": "#0D9373",
+      "from": "#0c74dc",
       "to": "#07C983"
     }
   },
@@ -39,7 +39,7 @@
     },
     {
       "name": "Community",
-      "icon": "slack",
+      "icon": "discord",
       "url": "https://discord.gg/58Ug3C3s7d"
     }
   ],
@@ -74,6 +74,14 @@
     },
     {
       "group": "Assistants",
+      "pages": [
+        "api-reference/endpoint/get",
+        "api-reference/endpoint/create",
+        "api-reference/endpoint/delete"
+      ]
+    },
+    {
+      "group": "Phone Numbers",
       "pages": [
         "api-reference/endpoint/get",
         "api-reference/endpoint/create",
